@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FullComponent } from './full/full.component';
 import { AppHeaderComponent } from './full/header/header.component';
+import { CitrinoComponent} from './citrino.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    CitrinoComponent
   ],
   imports: [
     BrowserModule,

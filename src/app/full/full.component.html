@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div class="main-container"> 
+<div class="main-container">
     <!-- ============================================================== -->
     <!-- Topbar - style you can find in header.scss -->
     <!-- ============================================================== -->
@@ -30,10 +30,8 @@
         <!-- ============================================================== -->
         <!-- sidebar toggle -->
         <!-- ============================================================== -->
-        
-        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
-            <mat-icon>menu</mat-icon>
-        </button>
+
+
         <span fxFlex></span>
         <!-- ============================================================== -->
         <!-- app header component - style you can find in header.scss / header.component.ts-->
@@ -43,34 +41,5 @@
     <!-- ============================================================== -->
     <!-- End Topbar - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-        <!-- ============================================================== -->
-        <!-- Sidebar - style you can find in sidebar.scss -->
-        <!-- ============================================================== -->
-        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  >
-            
-                <app-sidebar></app-sidebar>
-               
-            
-        </mat-sidenav>
-        <!-- ============================================================== -->
-        <!-- Sidebar - style you can find in sidebar.scss -->
-        <!-- ============================================================== -->
-        
-        <!-- ============================================================== -->
-        <!-- Page container - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <mat-sidenav-content class="page-wrapper">
-                 
-                <div class="page-content">
-                   
-                        <router-outlet><app-spinner></app-spinner></router-outlet>
-                    
-                </div>    
-               
-        </mat-sidenav-content>
-        <!-- ============================================================== -->
-        <!-- Page container - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-    </mat-sidenav-container>
+
 </div>
