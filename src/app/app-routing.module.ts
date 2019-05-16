@@ -12,9 +12,8 @@ const routes: Routes = [{
       pathMatch: 'full'
     },
     {
-      path: '',
-      loadChildren:
-        './component/citrino.module#CitrinoComponentsModule'
+      path: 'starter',
+      loadChildren: './starter/starter.module#StarterModule'
     }
   ]
 }];

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FullComponent } from './full/full.component';
 import { AppHeaderComponent } from './full/header/header.component';
 import { CitrinoComponent} from './citrino.component';
+import { MaterialModule } from './Material-Module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CitrinoComponent} from './citrino.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
