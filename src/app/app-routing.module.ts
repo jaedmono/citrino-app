@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+
+import { Routes } from '@angular/router';
 import { FullComponent } from './full/full.component';
 
-const routes: Routes = [{
+export const AppRoutingModule: Routes = [{
   path: '',
   component: FullComponent,
   children: [
@@ -12,14 +12,15 @@ const routes: Routes = [{
       pathMatch: 'full'
     },
     {
+      path: '',
+      loadChildren:
+        './material-component/material.module#MaterialComponentsModule'
+    },
+    {
       path: 'starter',
       loadChildren: './starter/starter.module#StarterModule'
     }
   ]
 }];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+

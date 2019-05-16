@@ -1,6 +1,3 @@
-import * as $ from 'jquery';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Router } from '@angular/router';
 import {
   ChangeDetectorRef,
   Component,
@@ -11,17 +8,14 @@ import {
   Directive,
   AfterViewInit
 } from '@angular/core';
-import { MenuItems } from '../shared/menu-items/menu-items';
-import { AppHeaderComponent } from './header/header.component';
-import { AppSidebarComponent } from './sidebar/sidebar.component';
-
-/** @title Responsive sidenav */
+import { MediaMatcher } from '@angular/cdk/layout';
+import { MenuItems } from '../../shared/menu-items/menu-items';
 @Component({
-  selector: 'app-full-layout',
-  templateUrl: 'full.component.html',
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
   styleUrls: []
 })
-export class FullComponent implements OnDestroy, AfterViewInit {
+export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
@@ -39,5 +33,4 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  ngAfterViewInit() {}
 }
