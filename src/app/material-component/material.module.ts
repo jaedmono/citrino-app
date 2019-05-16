@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
+import { MaterialModule } from '../app-material-module';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
   imports: [
     CommonModule,
     RouterModule.forChild(MaterialRoutes),
+    MaterialModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -8,7 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './Material-Module';
+import { MaterialModule } from './app-material-module';
 import { AppComponent } from './app.component';
 import { FullComponent } from './full/full.component';
 import { AppHeaderComponent } from './full/header/header.component';
