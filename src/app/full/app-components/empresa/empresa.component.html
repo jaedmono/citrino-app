@@ -1,19 +1,53 @@
-<div>
-    <form>
-        <h1>Crear Empresa</h1>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Nit</label>
-                <input class="form-control" placeholder="Placeholder">
+
+<mat-card>
+    <mat-card-content> 
+        <form class="example-form">
+            <h1>Crear Empresa</h1>
+            <mat-form-field >
+                <input matInput placeholder="Nit" >
+            </mat-form-field>
+            <mat-form-field >
+                <input matInput placeholder="Nombre/Razón Social de la Empresa">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Numero de Empleados">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Tipo de Empresa</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Actividad Economica</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Forma Juridica</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Ambito Operacional</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary">Aceptar</button>
+                <button mat-raised-button color="warn">Cancelar</button>
             </div>
-            <div class="form-group">
-                <label>Numero de Empleados</label>
-                <input class="form-control" placeholder="Placeholder">
-            </div>
-            <div class="form-group">
-                <label>Tipo de Empresa</label>
-                <input class="form-control" placeholder="Placeholder">
-            </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </mat-card-content>
+</mat-card>

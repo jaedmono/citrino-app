@@ -12,7 +12,7 @@ export const AppRoutingModule: Routes = [{
       pathMatch: 'full'
     },
     {
-      path: '',
+      path: 'citrino',
       loadChildren:
         './full/app-components/app.component.modules#AppComponentModule'
     },
