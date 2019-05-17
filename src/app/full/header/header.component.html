@@ -1,12 +1,33 @@
-<a href="https://wrappixel.com/templates/materialpro-angular-dashboard/" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn">Upgrade To Pro</a>
-<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/1.jpg" alt="user" class="profile-pic"> </button>
-<mat-menu #profile="matMenu" class="mymegamenu">
-    <button mat-menu-item>
-        <mat-icon>settings</mat-icon> Settings </button>
-    <button mat-menu-item>
-        <mat-icon>account_box</mat-icon> Profile </button>
-    <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon> Disable notifications </button>
-    <button mat-menu-item>
-        <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+<button mat-icon-button class="m-l-5">Home</button>
+
+<button [matMenuTriggerFor]="empresa" mat-icon-button class="m-l-10"> Empresa</button>
+<mat-menu #empresa="matMenu" class="mymegamenu">
+    <button mat-menu-item routerLink=""> Crear Empresa </button>
+    <button mat-menu-item> Crear Perfil </button>
 </mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="contexto" class="m-l-25">Contexto</button>
+<mat-menu #contexto="matMenu">
+    <button mat-menu-item>Espacio Temporal</button>
+    <button mat-menu-item>Regulatorio</button>
+    <button mat-menu-item>Social</button>
+    <button mat-menu-item>Estrategia</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="proceso" class="m-l-35">Proceso</button>
+<mat-menu #proceso="matMenu">
+    <button mat-menu-item>Cargar Proceso Base</button>
+    <button mat-menu-item>Consultar Proceso Base</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="adaptacion" class="m-l-45">Adaptacion</button>
+<mat-menu #adaptacion="matMenu">
+    <button mat-menu-item>Iniciar Proceso</button>
+    <button mat-menu-item>Historial de Ejecuciones</button>
+</mat-menu>
+
+<button mat-icon-button class="m-l-55">Configuración</button>
+<!--mat-menu #configuracion="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+</mat-menu-->

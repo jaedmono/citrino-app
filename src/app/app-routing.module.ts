@@ -14,7 +14,7 @@ export const AppRoutingModule: Routes = [{
     {
       path: '',
       loadChildren:
-        './material-component/material.module#MaterialComponentsModule'
+        './full/app-components/app.component.modules#AppComponentModule'
     },
     {
       path: 'starter',

@@ -14,6 +14,7 @@ import {
 import { MenuItems } from '../shared/menu-items/menu-items';
 import { AppHeaderComponent } from './header/header.component';
 import { AppSidebarComponent } from './sidebar/sidebar.component';
+import { AppComponentModule} from './app-components/app.component.modules';
 
 /** @title Responsive sidenav */
 @Component({

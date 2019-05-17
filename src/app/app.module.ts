@@ -16,6 +16,7 @@ import { AppSidebarComponent } from './full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { CitrinoComponent} from './shared/citrino.component';
+import { AppComponentModule} from './full/app-components/app.component.modules';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CitrinoComponent} from './shared/citrino.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AppComponentModule,
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
