@@ -14,6 +14,7 @@ import { AppComponentRoutes } from './app.component.routing';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { ListEmpresaComponent } from './empresa-list/empresa.list.component';
 import { AlertComponent} from './alert/alert.component';
+import { DialogComponent} from '../app-components/dialog/dialog.component';
 
 
 @NgModule({
@@ -28,11 +29,12 @@ import { AlertComponent} from './alert/alert.component';
     CdkTableModule
   ],
   providers: [],
-  entryComponents: [],
+  entryComponents: [DialogComponent],
   declarations: [
     EmpresaComponent,
     ListEmpresaComponent,
-    AlertComponent
+    AlertComponent,
+    DialogComponent
   ]
 })
 export class AppComponentModule {}

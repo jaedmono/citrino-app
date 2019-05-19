@@ -20,7 +20,7 @@ export class CompanyService {
     }
 
     public deleteCompany(company) {
-        return this.http.delete(this.companyUrl + "/" + company.id);
+        return this.http.delete(this.companyUrl + "/" + company.idCompany);
     }
 
     public createCompany(company) {

@@ -66,8 +66,8 @@
                     <th mat-header-cell *matHeaderCellDef> </th>
                     <td mat-cell *matCellDef="let element">
                         <mat-chip-list>
-                            <mat-chip color="primary" selected>Editar</mat-chip>
-                            <mat-chip color="warn" selected>Borrar</mat-chip>
+                            <mat-chip color="primary" (click)="updateCompany(element)" selected>Editar</mat-chip>
+                            <mat-chip color="warn" (click)="deleteCompany(element)" selected>Borrar</mat-chip>
                         </mat-chip-list>
                     </td>
                 </ng-container>
