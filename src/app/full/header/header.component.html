@@ -1,32 +1,33 @@
-<button mat-icon-button class="m-l-5">Home</button>
+<button mat-button>Home</button>
 
-<button [matMenuTriggerFor]="empresa" mat-icon-button class="m-l-10"> Empresa</button>
+<button [matMenuTriggerFor]="empresa" mat-button> Empresa</button>
 <mat-menu #empresa="matMenu" class="mymegamenu">
     <button mat-menu-item routerLink="empresa"> Crear Empresa </button>
-    <button mat-menu-item routerLink="list-empresa"> Crear Perfil </button>
+    <button mat-menu-item routerLink="list-empresa"> Listado de Empresa </button>
+    <button mat-menu-item routerLink="crear-perfil"> Crear Perfil </button>
 </mat-menu>
 
-<button mat-icon-button [matMenuTriggerFor]="contexto" class="m-l-25">Contexto</button>
+<button mat-button [matMenuTriggerFor]="contexto">Contexto</button>
 <mat-menu #contexto="matMenu">
-    <button mat-menu-item>Espacio Temporal</button>
-    <button mat-menu-item>Regulatorio</button>
-    <button mat-menu-item>Social</button>
-    <button mat-menu-item>Estrategia</button>
+    <button mat-menu-item routerLink="contexto_temporal">Espacio Temporal</button>
+    <button mat-menu-item routerLink="contexto_regulatorio">Regulatorio</button>
+    <button mat-menu-item routerLink="contexto_social">Social</button>
+    <button mat-menu-item routerLink="contexto_estrategia">Estrategia</button>
 </mat-menu>
 
-<button mat-icon-button [matMenuTriggerFor]="proceso" class="m-l-35">Proceso</button>
+<button mat-button [matMenuTriggerFor]="proceso">Proceso</button>
 <mat-menu #proceso="matMenu">
     <button mat-menu-item>Cargar Proceso Base</button>
     <button mat-menu-item>Consultar Proceso Base</button>
 </mat-menu>
 
-<button mat-icon-button [matMenuTriggerFor]="adaptacion" class="m-l-45">Adaptacion</button>
+<button mat-button [matMenuTriggerFor]="adaptacion">Adaptacion</button>
 <mat-menu #adaptacion="matMenu">
     <button mat-menu-item>Iniciar Proceso</button>
     <button mat-menu-item>Historial de Ejecuciones</button>
 </mat-menu>
 
-<button mat-icon-button class="m-l-55">Configuración</button>
+<button mat-button>Configuración</button>
 <!--mat-menu #configuracion="matMenu">
     <button mat-menu-item>Item 1</button>
     <button mat-menu-item>Item 2</button>

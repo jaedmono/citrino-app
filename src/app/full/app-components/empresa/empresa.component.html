@@ -1,53 +1,53 @@
-
 <mat-card>
-    <mat-card-content> 
+    <mat-card-content>
         <form class="example-form">
             <h1>Crear Empresa</h1>
-            <mat-form-field >
-                <input matInput placeholder="Nit" >
+            <mat-form-field>
+                <input matInput placeholder="Nit" [(ngModel)]="company.nitCompany" name="nitCompany">
             </mat-form-field>
-            <mat-form-field >
-                <input matInput placeholder="Nombre/Razón Social de la Empresa">
+            <mat-form-field>
+                <input matInput [(ngModel)]="company.nameCompany" placeholder="Nombre/Razón Social de la Empresa" name="companyName">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Numero de Empleados">
+                <input matInput [(ngModel)]="company.totalEmployees" placeholder="Numero de Empleados" name="totalEmployees">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Tipo de Empresa</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-select [(ngModel)]="selectedCompanyType" name="companyType">
+                    <mat-option *ngFor="let companyType of companyTypes" [value]="companyType.value">
+                        {{companyType.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Actividad Economica</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-select [(ngModel)]="selectedActividadEco" name="actecono">
+                    <mat-option *ngFor="let actecono of acteconos" [value]="actecono.value">
+                        {{actecono.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Forma Juridica</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-select [(ngModel)]="selectedFormaJuridica" name="formaJuridica">
+                    <mat-option *ngFor="let formaJuridica of formaJuridicas" [value]="formaJuridica.value">
+                        {{formaJuridica.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Ambito Operacional</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+                <mat-select [(ngModel)]="selectedAmbitoOper" name="ambitoOper">
+                    <mat-option *ngFor="let ambitoOper of ambitoOpers" [value]="ambitoOper.value">
+                        {{ambitoOper.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <div class="example-button-row">
-                <button mat-raised-button color="primary">Aceptar</button>
-                <button mat-raised-button color="warn">Cancelar</button>
+                <button mat-raised-button color="primary" (click)="createCompany()">Aceptar</button>
+                <button mat-raised-button color="warn" (click)="clearCompany()">Cancelar</button>
             </div>
+            <app-alert></app-alert>
         </form>
     </mat-card-content>
 </mat-card>

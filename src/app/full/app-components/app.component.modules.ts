@@ -13,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponentRoutes } from './app.component.routing';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { ListEmpresaComponent } from './empresa-list/empresa.list.component';
+import { AlertComponent} from './alert/alert.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ListEmpresaComponent } from './empresa-list/empresa.list.component';
   entryComponents: [],
   declarations: [
     EmpresaComponent,
-    ListEmpresaComponent
+    ListEmpresaComponent,
+    AlertComponent
   ]
 })
 export class AppComponentModule {}
