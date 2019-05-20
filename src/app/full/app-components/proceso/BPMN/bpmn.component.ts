@@ -35,7 +35,7 @@ const customModdle = {
     styleUrls: []
 })
 export class BpmnComponent implements OnInit {
-title = 'Angular/BPMN';
+title = 'BPMN';
 modeler;
 
 constructor(private http: HttpClient) {
@@ -73,7 +73,7 @@ ngOnInit(): void {
     }
 
     load(): void {
-        const url = '/assets/bpmn/initial.bpmn';
+        const url = '/assets/bpmn/tmp.bpmn';
         this.http.get(url, {
         headers: {observe: 'response'}, responseType: 'text'
         }).subscribe(
