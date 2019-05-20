@@ -6,6 +6,7 @@ import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.componen
 import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
 import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
 import { EstrategiaComponent } from './estrategia/estrategia.component';
+import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.component';
 
 export const AppComponentRoutes: Routes = [
   {
@@ -31,5 +32,9 @@ export const AppComponentRoutes: Routes = [
   {
     path: 'estrategia',
     component: EstrategiaComponent
+  },
+  {
+    path: 'cargar-proceso',
+    component: CargarProcesoComponent
   }
 ];

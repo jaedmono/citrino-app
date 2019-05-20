@@ -20,6 +20,8 @@ import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.componen
 import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
 import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
 import { EstrategiaComponent } from './estrategia/estrategia.component';
+import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.component';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { EstrategiaComponent } from './estrategia/estrategia.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    AngularFileUploaderModule
   ],
   providers: [],
   entryComponents: [DialogComponent, DialogUpdateComponent],
@@ -44,7 +47,8 @@ import { EstrategiaComponent } from './estrategia/estrategia.component';
     PerfilHorarioComponent,
     PoliticasEmpresaComponent,
     MetodosPagoComponent,
-    EstrategiaComponent
+    EstrategiaComponent,
+    CargarProcesoComponent
   ]
 })
 export class AppComponentModule {}

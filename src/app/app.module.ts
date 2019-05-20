@@ -20,6 +20,7 @@ import { AppComponentModule} from './full/app-components/app.component.modules';
 import { CompanyService} from './full/service/company.service';
 import { PerfilHorarioService} from './full/service/perfil.horario.service';
 import { AlertService} from './full/service/alert.service';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AlertService} from './full/service/alert.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFileUploaderModule,
     MaterialModule,
     AppComponentModule,
     FormsModule,

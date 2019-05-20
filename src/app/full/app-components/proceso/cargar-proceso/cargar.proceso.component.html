@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <h1>Carga de Procesos PCF</h1>
+            <mat-form-field>
+                <mat-label>Tipo de Industria</mat-label>
+                <mat-select [(ngModel)]="selectedDataType" name="dataType">
+                    <mat-option *ngFor="let dataType of dataTypes" [value]="dataType.value">
+                        {{dataType.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <angular-file-uploader #fileUpload1 [config]="afuConfig" [resetUpload]=resetVar (ApiResponse)="DocUpload($event)">
+            </angular-file-uploader>
+        </form>
+    </mat-card-content>
+</mat-card>
