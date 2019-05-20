@@ -15,6 +15,8 @@ import { EmpresaComponent } from './empresa/empresa.component';
 import { ListEmpresaComponent } from './empresa-list/empresa.list.component';
 import { AlertComponent} from './alert/alert.component';
 import { DialogComponent} from '../app-components/dialog/dialog.component';
+import { DialogUpdateComponent} from '../app-components/dialog/dialog-update/dialog.update.component';
+import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.component';
 
 
 @NgModule({
@@ -29,12 +31,14 @@ import { DialogComponent} from '../app-components/dialog/dialog.component';
     CdkTableModule
   ],
   providers: [],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, DialogUpdateComponent],
   declarations: [
     EmpresaComponent,
     ListEmpresaComponent,
     AlertComponent,
-    DialogComponent
+    DialogComponent,
+    DialogUpdateComponent,
+    PerfilHorarioComponent
   ]
 })
 export class AppComponentModule {}

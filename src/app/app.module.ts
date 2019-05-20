@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { CitrinoComponent} from './shared/citrino.component';
 import { AppComponentModule} from './full/app-components/app.component.modules';
 import { CompanyService} from './full/service/company.service';
+import { PerfilHorarioService} from './full/service/perfil.horario.service';
 import { AlertService} from './full/service/alert.service';
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AlertService} from './full/service/alert.service';
       useClass: PathLocationStrategy
     },
     CompanyService,
-    AlertService
+    AlertService,
+    PerfilHorarioService
   ],
   bootstrap: [AppComponent]
 })

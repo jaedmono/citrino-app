@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Company} from '../../model/company.model';
 import { CompanyService} from '../../service/company.service';
 import { DialogComponent} from '../dialog/dialog.component';
+import { DialogUpdateComponent} from '../dialog/dialog-update/dialog.update.component';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ListEmpresaComponent implements AfterViewInit {
   public data: Company[];
   public company = new Company();
 
-  constructor(private companyService: CompanyService, public dialog: MatDialog) {
+  constructor( private companyService: CompanyService, public dialog: MatDialog) {
 
   }
 
@@ -50,15 +51,10 @@ export class ListEmpresaComponent implements AfterViewInit {
   }
 
   updateCompany(company): void {
-    this.company.idCompany = company.idCompany;
-    this.company.nameCompany = company.nameCompany;
-    this.company.nitCompany = company.nitCompany;
-    this.company.stateCompany = company.stateCompany;
-    this.company.totalEmployees = company.totalEmployees;
-    this.company.acteconomia = company.acteconomia;
-    this.company.ambitooper = company.ambitooper;
-    this.company.companyType = company.companyType;
-    this.company.fjuridica = company.fjuridica;
+    const dialogRef = this.dialog.open(DialogUpdateComponent, {
+      width: '650px',
+      data: {messageHeader: 'Editar Empresa', shouldUpdate: true}
+    });
   }
 
 }

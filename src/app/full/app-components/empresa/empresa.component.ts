@@ -5,6 +5,7 @@ import { CompanyService} from '../../service/company.service';
 
 import { AlertService} from '../../service/alert.service';
 import { Alert, AlertType } from '../../model/alert.model';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 export interface Actecono {
   value: string;
@@ -61,9 +62,15 @@ export class EmpresaComponent {
   ];
   company: Company = new Company();
   message = 'Empresa Creada.';
+  titleView = 'Crear Empresa';
   @Input() id: string;
+  @Input() shouldUpdate: boolean;
 
-  constructor(private router: Router, private companyService: CompanyService, private alertService: AlertService) { }
+  constructor(private router: Router, private companyService: CompanyService, private alertService: AlertService) {
+    if (this.shouldUpdate) {
+      this.titleView = 'Editar Empresa';
+    }
+   }
 
   createCompany(): void {
     this.company.companyType = this.selectedCompanyType;
