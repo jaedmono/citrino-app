@@ -7,6 +7,8 @@ import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa
 import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
 import { EstrategiaComponent } from './estrategia/estrategia.component';
 import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.component';
+import { ContextoEspacioComponent} from './contexto/contexto-espaciotemporal/contexto.espacio.temporal.component';
+import { ContextoSocialComponent} from './contexto/contexto-social/contexto.social.component';
 
 export const AppComponentRoutes: Routes = [
   {
@@ -36,5 +38,13 @@ export const AppComponentRoutes: Routes = [
   {
     path: 'cargar-proceso',
     component: CargarProcesoComponent
+  },
+  {
+    path: 'contexto-temporal',
+    component: ContextoEspacioComponent
+  },
+  {
+    path: 'contexto-social',
+    component: ContextoSocialComponent
   }
 ];

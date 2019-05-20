@@ -1,0 +1,56 @@
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <h1>Contexto Espaciotemporal</h1>
+            <mat-card-subtitle>Ubicación Geográfica</mat-card-subtitle>
+            <mat-form-field>
+                <input matInput placeholder="Ciudad" name="pmpDestinoPago">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Pais" name="pmpDestinoPago">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Temporadas" name="pmpDestinoPago">
+            </mat-form-field>
+
+            <div fxLayout="row">
+                <div fxFlex.gt-sm="100%">
+                    <mat-card>
+                        <table mat-table [dataSource]="data">
+
+                            <!-- Id Column -->
+                            <ng-container matColumnDef="temporada">
+                                <th mat-header-cell *matHeaderCellDef> Temporada. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.idCompany}} </td>
+                            </ng-container>
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <mat-chip-list>
+                                        <mat-chip color="primary" (click)="updateCompany(element)" selected>Editar</mat-chip>
+                                        <mat-chip color="warn" (click)="deleteCompany(element)" selected>Borrar</mat-chip>
+                                    </mat-chip-list>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+
+                    </mat-card>
+                </div>
+            </div>
+
+
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="createPerfilHorario()">Aceptar</button>
+                <button mat-raised-button color="warn" routerLink="/citrino/politicas-empresa">Siguiente</button>
+            </div>
+            <app-alert></app-alert>
+        </form>
+    </mat-card-content>
+</mat-card>

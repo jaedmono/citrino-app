@@ -22,7 +22,8 @@ import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
 import { EstrategiaComponent } from './estrategia/estrategia.component';
 import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.component';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
-
+import { ContextoEspacioComponent} from './contexto/contexto-espaciotemporal/contexto.espacio.temporal.component';
+import { ContextoSocialComponent} from './contexto/contexto-social/contexto.social.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,9 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     PoliticasEmpresaComponent,
     MetodosPagoComponent,
     EstrategiaComponent,
-    CargarProcesoComponent
+    CargarProcesoComponent,
+    ContextoEspacioComponent,
+    ContextoSocialComponent
   ]
 })
 export class AppComponentModule {}
