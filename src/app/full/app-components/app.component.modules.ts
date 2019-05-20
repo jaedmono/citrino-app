@@ -18,6 +18,7 @@ import { DialogComponent} from '../app-components/dialog/dialog.component';
 import { DialogUpdateComponent} from '../app-components/dialog/dialog-update/dialog.update.component';
 import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.component';
 import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
+import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa
     DialogComponent,
     DialogUpdateComponent,
     PerfilHorarioComponent,
-    PoliticasEmpresaComponent
+    PoliticasEmpresaComponent,
+    MetodosPagoComponent
   ]
 })
 export class AppComponentModule {}
