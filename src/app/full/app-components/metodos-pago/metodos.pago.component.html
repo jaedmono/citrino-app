@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
         <form class="example-form">
-            <h1>Politicas Empresa</h1>
+            <h1>Metodos de Pago</h1>
             <mat-form-field>
                 <mat-label>Empresa</mat-label>
                 <mat-select [(ngModel)]="selectedIdCompany" name="company">
@@ -23,7 +23,7 @@
             </mat-form-field>
             <div class="example-button-row">
                 <button mat-raised-button color="primary" (click)="createPayMethod()">Aceptar</button>
-                <button mat-raised-button color="warn" routerLink="/citrino/estrategy">Siguiente</button>
+                <button mat-raised-button color="warn" routerLink="/citrino/estrategia">Siguiente</button>
             </div>
             <app-alert></app-alert>
         </form>

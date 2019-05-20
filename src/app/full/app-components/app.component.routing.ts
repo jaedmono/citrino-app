@@ -5,6 +5,7 @@ import { ListEmpresaComponent } from './empresa-list/empresa.list.component';
 import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.component';
 import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
 import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
+import { EstrategiaComponent } from './estrategia/estrategia.component';
 
 export const AppComponentRoutes: Routes = [
   {
@@ -26,5 +27,9 @@ export const AppComponentRoutes: Routes = [
   {
     path: 'metodos-pago',
     component: MetodosPagoComponent
+  },
+  {
+    path: 'estrategia',
+    component: EstrategiaComponent
   }
 ];

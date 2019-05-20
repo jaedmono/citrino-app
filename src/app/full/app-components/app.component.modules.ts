@@ -19,6 +19,7 @@ import { DialogUpdateComponent} from '../app-components/dialog/dialog-update/dia
 import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.component';
 import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
 import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
+import { EstrategiaComponent } from './estrategia/estrategia.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MetodosPagoComponent } from './metodos-pago/metodos.pago.component';
     DialogUpdateComponent,
     PerfilHorarioComponent,
     PoliticasEmpresaComponent,
-    MetodosPagoComponent
+    MetodosPagoComponent,
+    EstrategiaComponent
   ]
 })
 export class AppComponentModule {}

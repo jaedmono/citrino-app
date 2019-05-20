@@ -9,16 +9,16 @@
 
 <button mat-button [matMenuTriggerFor]="contexto">Contexto</button>
 <mat-menu #contexto="matMenu">
-    <button mat-menu-item routerLink="contexto_temporal">Espacio Temporal</button>
-    <button mat-menu-item routerLink="contexto_regulatorio">Regulatorio</button>
-    <button mat-menu-item routerLink="contexto_social">Social</button>
-    <button mat-menu-item routerLink="contexto_estrategia">Estrategia</button>
+    <button mat-menu-item routerLink="contexto-temporal">Espacio Temporal</button>
+    <button mat-menu-item routerLink="contexto-regulatorio">Regulatorio</button>
+    <button mat-menu-item routerLink="contexto-social">Social</button>
+    <button mat-menu-item routerLink="contexto-estrategia">Estrategia</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="proceso">Proceso</button>
 <mat-menu #proceso="matMenu">
-    <button mat-menu-item>Cargar Proceso Base</button>
-    <button mat-menu-item>Consultar Proceso Base</button>
+    <button mat-menu-item routerLink="cargar-proceso">Cargar Proceso Base</button>
+    <button mat-menu-item routerLink="consultar-proceso">Consultar Proceso Base</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="adaptacion">Adaptacion</button>

@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <h1>Estrategia</h1>
+            <table>
+                <tr>
+                    <td>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="horasExtra" name="extras">
+                            <mat-radio-button class="example-radio-button" value="Costos">Costos</mat-radio-button>
+                            <mat-radio-button class="example-radio-button" value="Calidad">Calidad</mat-radio-button>
+                            <mat-radio-button class="example-radio-button" value="Agilidad">Agilidad</mat-radio-button>
+                        </mat-radio-group>
+                    </td>
+                </tr>
+            </table>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="createEstrategia()">Aceptar</button>
+            </div>
+            <app-alert></app-alert>
+        </form>
+    </mat-card-content>
+</mat-card>
