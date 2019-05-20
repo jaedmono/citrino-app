@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
         <form class="example-form">
-            <h1>{{titleView}}</h1>
+            <h1>Preferencia Empresa - Politicas Horario</h1>
             <mat-form-field>
                 <mat-label>Empresa</mat-label>
                 <mat-select [(ngModel)]="selectedIdCompany" name="company">
@@ -53,7 +53,7 @@
             </table>
             <div class="example-button-row">
                 <button mat-raised-button color="primary" (click)="createPerfilHorario()">Aceptar</button>
-                <button mat-raised-button color="warn" (click)="nextStep()">Siguiente</button>
+                <button mat-raised-button color="warn" routerLink="/citrino/politicas-empresa">Siguiente</button>
             </div>
             <app-alert></app-alert>
         </form>

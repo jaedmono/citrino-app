@@ -8,6 +8,7 @@ import { DialogComponent} from '../dialog/dialog.component';
 import { DialogUpdateComponent} from '../dialog/dialog-update/dialog.update.component';
 import { AlertService} from '../../service/alert.service';
 import { Alert, AlertType } from '../../model/alert.model';
+import { Router } from '@angular/router';
 
 export interface Season {
     value: string;
@@ -70,7 +71,8 @@ export class PerfilHorarioComponent implements AfterViewInit {
   constructor( private companyService: CompanyService,
                private alertService: AlertService,
                public dialog: MatDialog,
-               private perfilHorarioService: PerfilHorarioService) {
+               private perfilHorarioService: PerfilHorarioService,
+               private router: Router) {
 
   }
 
@@ -123,5 +125,6 @@ export class PerfilHorarioComponent implements AfterViewInit {
       data: {messageHeader: 'Editar Empresa', shouldUpdate: true}
     });
   }
+
 
 }

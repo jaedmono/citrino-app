@@ -17,6 +17,7 @@ import { AlertComponent} from './alert/alert.component';
 import { DialogComponent} from '../app-components/dialog/dialog.component';
 import { DialogUpdateComponent} from '../app-components/dialog/dialog-update/dialog.update.component';
 import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.component';
+import { PoliticasEmpresaComponent } from './politicas-empresa/politicas.empresa.componente';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PerfilHorarioComponent } from './perfil-horario/perfil.horario.componen
     AlertComponent,
     DialogComponent,
     DialogUpdateComponent,
-    PerfilHorarioComponent
+    PerfilHorarioComponent,
+    PoliticasEmpresaComponent
   ]
 })
 export class AppComponentModule {}
