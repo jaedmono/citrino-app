@@ -9,6 +9,8 @@ import { EstrategiaComponent } from './estrategia/estrategia.component';
 import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.component';
 import { ContextoEspacioComponent} from './contexto/contexto-espaciotemporal/contexto.espacio.temporal.component';
 import { ContextoSocialComponent} from './contexto/contexto-social/contexto.social.component';
+import { ContextoNormativoComponent} from './contexto/contexto-normativo/contexto.normativo.component';
+import { ContextoTecnicoComponent} from './contexto/contexto-tecnico/contexto.tecnico.component';
 
 export const AppComponentRoutes: Routes = [
   {
@@ -46,5 +48,13 @@ export const AppComponentRoutes: Routes = [
   {
     path: 'contexto-social',
     component: ContextoSocialComponent
+  },
+  {
+    path: 'contexto-normativo',
+    component: ContextoNormativoComponent
+  },
+  {
+    path: 'contexto-tecnico',
+    component: ContextoTecnicoComponent
   }
 ];

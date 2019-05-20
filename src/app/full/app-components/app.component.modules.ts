@@ -24,6 +24,8 @@ import { CargarProcesoComponent} from './proceso/cargar-proceso/cargar.proceso.c
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { ContextoEspacioComponent} from './contexto/contexto-espaciotemporal/contexto.espacio.temporal.component';
 import { ContextoSocialComponent} from './contexto/contexto-social/contexto.social.component';
+import { ContextoNormativoComponent} from './contexto/contexto-normativo/contexto.normativo.component';
+import { ContextoTecnicoComponent} from './contexto/contexto-tecnico/contexto.tecnico.component';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import { ContextoSocialComponent} from './contexto/contexto-social/contexto.soci
     EstrategiaComponent,
     CargarProcesoComponent,
     ContextoEspacioComponent,
-    ContextoSocialComponent
+    ContextoSocialComponent,
+    ContextoNormativoComponent,
+    ContextoTecnicoComponent
   ]
 })
 export class AppComponentModule {}
