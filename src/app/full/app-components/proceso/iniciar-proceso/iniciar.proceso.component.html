@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <h1>Proceso de Adapatación</h1>
+            <p>Aplicar proceso de adaptación</p>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" (click)="adaptar()">Adaptar</button>
+            </div>
+            <mat-spinner *ngIf="disableSpiner"></mat-spinner>
+        </form>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <form class="example-form">
+            <app-alert></app-alert>
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" routerLink="/citrino/ver-proceso" [disabled]="!resourcesLoaded">Ver BPMN</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

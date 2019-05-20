@@ -26,6 +26,8 @@ import { ContextoEspacioComponent} from './contexto/contexto-espaciotemporal/con
 import { ContextoSocialComponent} from './contexto/contexto-social/contexto.social.component';
 import { ContextoNormativoComponent} from './contexto/contexto-normativo/contexto.normativo.component';
 import { ContextoTecnicoComponent} from './contexto/contexto-tecnico/contexto.tecnico.component';
+import { IniciarProcesoComponent} from './proceso/iniciar-proceso/iniciar.proceso.component';
+import { BpmnComponent} from './proceso/BPMN/bpmn.component';
 
 @NgModule({
   imports: [
@@ -55,7 +57,9 @@ import { ContextoTecnicoComponent} from './contexto/contexto-tecnico/contexto.te
     ContextoEspacioComponent,
     ContextoSocialComponent,
     ContextoNormativoComponent,
-    ContextoTecnicoComponent
+    ContextoTecnicoComponent,
+    IniciarProcesoComponent,
+    BpmnComponent
   ]
 })
 export class AppComponentModule {}
