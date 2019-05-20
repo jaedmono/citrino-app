@@ -8,7 +8,7 @@ export const AppRoutingModule: Routes = [{
   children: [
     {
       path: '',
-      redirectTo: '/starter',
+      redirectTo: '/citrino',
       pathMatch: 'full'
     },
     {
