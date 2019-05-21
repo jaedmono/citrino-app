@@ -1,12 +1,20 @@
 <mat-card>
     <mat-card-content>
         <form class="example-form">
-            <h1>Preferencia Empresa - Politicas Horario</h1>
+            <h1 #title>Politicas Horario</h1>
             <mat-form-field>
                 <mat-label>Empresa</mat-label>
-                <mat-select [(ngModel)]="selectedIdCompany" name="company">
+                <mat-select [(ngModel)]="selectedIdCompany" id="company" name="company">
                     <mat-option *ngFor="let company of companies" [value]="company.idCompany">
                         {{company.nameCompany}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Temporada</mat-label>
+                <mat-select [(ngModel)]="selectedSeason" name="season">
+                    <mat-option *ngFor="let season of seasons" [value]="season.value">
+                        {{season.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -20,7 +28,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Jornada Semanal</mat-label>
-                <mat-select [(ngModel)]="selectedFormaJuridica" name="journal">
+                <mat-select [(ngModel)]="selectedJournal" name="journal">
                     <mat-option *ngFor="let journal of journals" [value]="journal.value">
                         {{journal.viewValue}}
                     </mat-option>
@@ -52,8 +60,8 @@
                 </tr>
             </table>
             <div class="example-button-row">
-                <button mat-raised-button color="primary" (click)="createPerfilHorario()">Aceptar</button>
-                <button mat-raised-button color="warn" routerLink="/citrino/politicas-empresa">Siguiente</button>
+                <button mat-raised-button color="primary" (click)="createPerfilHorario()">{{labelButtonSuccess}}</button>
+                <button mat-raised-button color="warn" routerLink="/citrino/politicas-empresa">{{labelButtonCancel}}</button>
             </div>
             <app-alert></app-alert>
         </form>
@@ -67,37 +75,37 @@
                 <!-- Id Column -->
                 <ng-container matColumnDef="temporada">
                     <th mat-header-cell *matHeaderCellDef> Temporada. </th>
-                    <td mat-cell *matCellDef="let element"> {{element.idCompany}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoTemporada}} </td>
                 </ng-container>
 
                 <!-- Nit Column -->
                 <ng-container matColumnDef="tipoEmpleado">
                     <th mat-header-cell *matHeaderCellDef> Tipo Empleado </th>
-                    <td mat-cell *matCellDef="let element"> {{element.nitCompany}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoTipoEmpleado}} </td>
                 </ng-container>
 
                 <!-- Razon Social Column -->
                 <ng-container matColumnDef="jornadaSemanal">
                     <th mat-header-cell *matHeaderCellDef> Jornada Semanal </th>
-                    <td mat-cell *matCellDef="let element"> {{element.nameCompany}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoJornada}} </td>
                 </ng-container>
 
                 <!-- Numero Empleados Column -->
                 <ng-container matColumnDef="extras">
                     <th mat-header-cell *matHeaderCellDef> Extras </th>
-                    <td mat-cell *matCellDef="let element"> {{element.totalEmployees}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoExtras}} </td>
                 </ng-container>
 
                 <!-- Tipo Empresa Column -->
                 <ng-container matColumnDef="bonos">
                     <th mat-header-cell *matHeaderCellDef> Bonos </th>
-                    <td mat-cell *matCellDef="let element"> {{element.companyType}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoBonos}} </td>
                 </ng-container>
 
                 <!-- Actividad Economica Column -->
                 <ng-container matColumnDef="otros">
                     <th mat-header-cell *matHeaderCellDef> Otros </th>
-                    <td mat-cell *matCellDef="let element"> {{element.acteconomia}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.phoOtros}} </td>
                 </ng-container>
 
                 <!-- Action Column -->
@@ -105,8 +113,8 @@
                     <th mat-header-cell *matHeaderCellDef> </th>
                     <td mat-cell *matCellDef="let element">
                         <mat-chip-list>
-                            <mat-chip color="primary" (click)="updateCompany(element)" selected>Editar</mat-chip>
-                            <mat-chip color="warn" (click)="deleteCompany(element)" selected>Borrar</mat-chip>
+                            <mat-chip color="primary" (click)="updateElement(element)" selected>Editar</mat-chip>
+                            <mat-chip color="warn" (click)="deleteElement(element)" selected>Borrar</mat-chip>
                         </mat-chip-list>
                     </td>
                 </ng-container>

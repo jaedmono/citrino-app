@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, Input} from '@angular/core';
+import { Component, ViewChild, AfterViewInit, Input, ElementRef} from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { PerfilHorario} from '../../model/perfil.horario.model';
 import { Company} from '../../model/company.model';
@@ -45,7 +45,10 @@ export class PerfilHorarioComponent implements AfterViewInit {
     selectedEmployeeType: string;
     selectedJournal: string;
     selectedIdCompany: number;
-    season: Season[] = [
+    horasExtra: string;
+    paganBonos: string;
+    otrosReconocimientos: string;
+    seasons: Season[] = [
         {value: 'Invierno', viewValue: 'Invierno'},
         {value: 'Primavera', viewValue: 'Primavera'},
         {value: 'Otoño', viewValue: 'Otoño'},
@@ -67,6 +70,9 @@ export class PerfilHorarioComponent implements AfterViewInit {
   public perfilHorario = new PerfilHorario();
   message = 'Preferencia Creada.';
   @Input() id: string;
+  @ViewChild('title') nameField;
+  labelButtonSuccess = 'Crear';
+  labelButtonCancel = 'Siguiente';
 
   constructor( private companyService: CompanyService,
                private alertService: AlertService,
@@ -78,6 +84,19 @@ export class PerfilHorarioComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
+    this.perfilHorarioService.getPerfilesHorario().subscribe(data => {this.data = data; });
+  }
+  
+  clearForm(): void {
+    this.labelButtonCancel = 'Siguiente';
+    this.labelButtonSuccess = 'Crear';
+    this.selectedSeason = undefined;
+    this.selectedEmployeeType = undefined;
+    this.selectedJournal = undefined;
+    this.selectedIdCompany = undefined;
+    this.horasExtra = undefined;
+    this.paganBonos = undefined;
+    this.otrosReconocimientos = undefined;
   }
 
   createPerfilHorario(): void {
@@ -85,22 +104,20 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.perfilHorario.phoTipoEmpleado = this.selectedEmployeeType;
     this.perfilHorario.phoJornada = this.selectedJournal;
     this.perfilHorario.idCompany = this.selectedIdCompany;
+    this.perfilHorario.phoExtras = this.horasExtra;
+    this.perfilHorario.phoBonos = this.paganBonos;
+    this.perfilHorario.phoOtros = this.otrosReconocimientos;
+    this.clearForm();
 
-    /*this.perfilHorarioService.createPerfilHorario(this.perfilHorario)
+    this.perfilHorarioService.createPerfilHorario(this.perfilHorario)
         .subscribe( data => {
+          this.data.push(data);
           this.alertService.alert(new Alert({
             message: this.message,
             type: AlertType.Success,
             alertId: this.id
         }));
-
-    });*/
-
-    this.alertService.alert(new Alert({
-        message: this.message,
-        type: AlertType.Success,
-        alertId: this.id
-    }));
+    });
   }
 
   deleteElement(element): void {
@@ -111,7 +128,7 @@ export class PerfilHorarioComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.companyService.deleteCompany(element)
+        this.perfilHorarioService.deletePerfilHorario(element)
           .subscribe( data => {
             this.data = this.data.filter(u => u !== element);
           });
@@ -120,10 +137,17 @@ export class PerfilHorarioComponent implements AfterViewInit {
   }
 
   updateElement(element): void {
-    const dialogRef = this.dialog.open(DialogUpdateComponent, {
-      width: '650px',
-      data: {messageHeader: 'Editar Empresa', shouldUpdate: true}
-    });
+    this.selectedSeason = element.phoTemporada;
+    this.selectedEmployeeType = element.phoTipoEmpleado;
+    this.selectedJournal = element.phoJornada;
+    this.selectedIdCompany = element.idCompany;
+    this.horasExtra = element.phoExtras;
+    this.paganBonos = element.phoBonos;
+    this.otrosReconocimientos = element.phoOtros;
+    this.perfilHorario = element;
+    this.nameField.nativeElement.focus();
+    this.labelButtonSuccess = 'Actualizar';
+    this.labelButtonCancel = 'Cancelar';
   }
 
 
