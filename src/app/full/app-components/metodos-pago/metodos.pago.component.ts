@@ -7,7 +7,7 @@ import { DialogComponent} from '../dialog/dialog.component';
 import { DialogUpdateComponent} from '../dialog/dialog-update/dialog.update.component';
 import { AlertService} from '../../service/alert.service';
 import { Alert, AlertType } from '../../model/alert.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PerfilMetodoPago} from '../../model/metodo.pago.model';
 import { MetodoPagoService } from '../../service/metodo.pago.service';
 
@@ -44,9 +44,16 @@ export class MetodosPagoComponent implements AfterViewInit {
                private alertService: AlertService,
                private metdosPagoService: MetodoPagoService,
                public dialog: MatDialog,
-               private router: Router) {
+               private router: Router,
+               private rout: ActivatedRoute) {
 
   }
+
+  ngOnInit() {
+    this.rout.params.subscribe(params => {
+     this.selectedIdCompany = params['idCompany'];
+     });
+   }
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
@@ -84,7 +91,7 @@ export class MetodosPagoComponent implements AfterViewInit {
   clearForm(): void {
     this.labelButtonCancel = 'Siguiente';
     this.labelButtonSuccess = 'Crear';
-    this.selectedIdCompany = undefined;
+    //this.selectedIdCompany = undefined;
     this.selectedPayMethod = undefined;
     this.payMethod = new PerfilMetodoPago();
     this.message = 'Politica Creada.';
@@ -93,7 +100,7 @@ export class MetodosPagoComponent implements AfterViewInit {
 
 
   updateElement(element): void {
-    this.selectedIdCompany = element.idCompany;
+    //this.selectedIdCompany = element.idCompany;
     this.payMethod = element;
     this.selectedPayMethod = element.pmpMedioPago;
     this.shuldCanceled = true;
@@ -106,7 +113,7 @@ export class MetodosPagoComponent implements AfterViewInit {
     if ( this.shuldCanceled) {
       this.clearForm();
     } else {
-      this.router.navigate(['/citrino/estrategia']);
+      this.router.navigate(['/citrino/estrategia',this.selectedIdCompany]);
     }
   }
 

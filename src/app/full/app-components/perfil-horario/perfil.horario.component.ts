@@ -73,6 +73,7 @@ export class PerfilHorarioComponent implements AfterViewInit {
   @ViewChild('title') nameField;
   labelButtonSuccess = 'Crear';
   labelButtonCancel = 'Siguiente';
+  shuldCanceled = false;
 
   constructor( private companyService: CompanyService,
                private alertService: AlertService,
@@ -97,6 +98,7 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.horasExtra = undefined;
     this.paganBonos = undefined;
     this.otrosReconocimientos = undefined;
+    this.shuldCanceled = false;
   }
 
   createPerfilHorario(): void {
@@ -148,6 +150,15 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.nameField.nativeElement.focus();
     this.labelButtonSuccess = 'Actualizar';
     this.labelButtonCancel = 'Cancelar';
+    this.shuldCanceled = true;
+  }
+
+  cancelEvent(): void {
+    if ( this.shuldCanceled) {
+      this.clearForm();
+    } else {
+      this.router.navigate(['/citrino/politicas-empresa',this.selectedIdCompany]);
+    }
   }
 
 

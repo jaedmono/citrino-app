@@ -7,7 +7,7 @@ import { DialogComponent} from '../dialog/dialog.component';
 import { DialogUpdateComponent} from '../dialog/dialog-update/dialog.update.component';
 import { AlertService} from '../../service/alert.service';
 import { Alert, AlertType } from '../../model/alert.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 import { PoliticaEmpresa} from '../../model/politica.empresa.model';
 import { PoliticaEmpresaService } from '../../service/politicas.empresa.service';
 
@@ -44,14 +44,21 @@ export class PoliticasEmpresaComponent implements AfterViewInit {
                private politicaEmpresaService: PoliticaEmpresaService,
                private alertService: AlertService,
                public dialog: MatDialog,
-               private router: Router) {
+               private router: Router,
+               private rout: ActivatedRoute) {
 
   }
+
+  ngOnInit() {
+    this.rout.params.subscribe(params => {
+     this.selectedIdCompany = params['idCompany'];
+     });
+   }
 
   clearForm(): void {
     this.labelButtonCancel = 'Siguiente';
     this.labelButtonSuccess = 'Crear';
-    this.selectedIdCompany = undefined;
+    //this.selectedIdCompany = undefined;
     this.selectedDataType = undefined;
     this.politicaEmpresa = new PoliticaEmpresa();
     this.message = 'Politica Creada.';
@@ -95,7 +102,7 @@ export class PoliticasEmpresaComponent implements AfterViewInit {
 
   updateElement(element): void {
     this.politicaEmpresa = element;
-    this.selectedIdCompany = element.idCompany;
+    //this.selectedIdCompany = element.idCompany;
     this.selectedDataType = element.ppolTipoDato;
     this.labelButtonSuccess = 'Actualizar';
     this.labelButtonCancel = 'Cancelar';
@@ -107,7 +114,7 @@ export class PoliticasEmpresaComponent implements AfterViewInit {
     if ( this.shuldCanceled) {
       this.clearForm();
     } else {
-      this.router.navigate(['/citrino/metodos-pago']);
+      this.router.navigate(['/citrino/metodos-pago',this.selectedIdCompany]);
     }
   }
 

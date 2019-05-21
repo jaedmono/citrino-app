@@ -61,7 +61,7 @@
             </table>
             <div class="example-button-row">
                 <button mat-raised-button color="primary" (click)="createPerfilHorario()">{{labelButtonSuccess}}</button>
-                <button mat-raised-button color="warn" routerLink="/citrino/politicas-empresa">{{labelButtonCancel}}</button>
+                <button mat-raised-button color="warn" (click)="cancelEvent()">{{labelButtonCancel}}</button>
             </div>
             <app-alert></app-alert>
         </form>

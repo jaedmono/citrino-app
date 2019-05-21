@@ -2,14 +2,14 @@
     <mat-card-content>
         <form class="example-form">
             <h1>Metodos de Pago</h1>
-            <mat-form-field>
+            <!--mat-form-field>
                 <mat-label>Empresa</mat-label>
                 <mat-select [(ngModel)]="selectedIdCompany" name="company">
                     <mat-option *ngFor="let company of companies" [value]="company.idCompany">
                         {{company.nameCompany}}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field-->
             <mat-form-field>
                 <input matInput placeholder="Destinatario de Pago" [(ngModel)]="payMethod.pmpDestinoPago" name="pmpDestinoPago">
             </mat-form-field>

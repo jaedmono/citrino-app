@@ -5,7 +5,7 @@
             <table>
                 <tr>
                     <td>
-                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="horasExtra" name="extras">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="estrategiaSelected" name="extras">
                             <mat-radio-button class="example-radio-button" value="Costos">Costos</mat-radio-button>
                             <mat-radio-button class="example-radio-button" value="Calidad">Calidad</mat-radio-button>
                             <mat-radio-button class="example-radio-button" value="Agilidad">Agilidad</mat-radio-button>
@@ -14,7 +14,7 @@
                 </tr>
             </table>
             <div class="example-button-row">
-                <button mat-raised-button color="primary" (click)="createEstrategia()">Aceptar</button>
+                <button mat-raised-button color="primary" (click)="createEstrategia()">Guardar</button>
             </div>
             <app-alert></app-alert>
         </form>

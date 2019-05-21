@@ -28,15 +28,15 @@ export const AppComponentRoutes: Routes = [
     component: PerfilHorarioComponent
   },
   {
-    path: 'politicas-empresa',
+    path: 'politicas-empresa/:idCompany',
     component: PoliticasEmpresaComponent
   },
   {
-    path: 'metodos-pago',
+    path: 'metodos-pago/:idCompany',
     component: MetodosPagoComponent
   },
   {
-    path: 'estrategia',
+    path: 'estrategia/:idCompany',
     component: EstrategiaComponent
   },
   {

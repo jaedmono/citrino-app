@@ -23,6 +23,7 @@ import { AlertService} from './full/service/alert.service';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { PoliticaEmpresaService } from './full/service/politicas.empresa.service';
 import { MetodoPagoService } from './full/service/metodo.pago.service';
+import { EstrategiaService } from './full/service/estrategia.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MetodoPagoService } from './full/service/metodo.pago.service';
     AlertService,
     PerfilHorarioService,
     PoliticaEmpresaService,
-    MetodoPagoService
+    MetodoPagoService,
+    EstrategiaService
   ],
   bootstrap: [AppComponent]
 })
