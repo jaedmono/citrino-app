@@ -22,6 +22,7 @@ import { PerfilHorarioService} from './full/service/perfil.horario.service';
 import { AlertService} from './full/service/alert.service';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { PoliticaEmpresaService } from './full/service/politicas.empresa.service';
+import { MetodoPagoService } from './full/service/metodo.pago.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PoliticaEmpresaService } from './full/service/politicas.empresa.service
     CompanyService,
     AlertService,
     PerfilHorarioService,
-    PoliticaEmpresaService
+    PoliticaEmpresaService,
+    MetodoPagoService
   ],
   bootstrap: [AppComponent]
 })

@@ -22,8 +22,8 @@
                 </mat-select>
             </mat-form-field>
             <div class="example-button-row">
-                <button mat-raised-button color="primary" (click)="createPayMethod()">Aceptar</button>
-                <button mat-raised-button color="warn" routerLink="/citrino/estrategia">Siguiente</button>
+                <button mat-raised-button color="primary" (click)="createPayMethod()">{{labelButtonSuccess}}</button>
+                <button mat-raised-button color="warn" (click)="cancelEvent()">{{labelButtonCancel}}</button>
             </div>
             <app-alert></app-alert>
         </form>
@@ -37,13 +37,13 @@
                 <!-- Id Column -->
                 <ng-container matColumnDef="destino">
                     <th mat-header-cell *matHeaderCellDef> Destino Pago. </th>
-                    <td mat-cell *matCellDef="let element "> {{element.idCompany}} </td>
+                    <td mat-cell *matCellDef="let element "> {{element.pmpDestinoPago}} </td>
                 </ng-container>
 
                 <!-- Nit Column -->
                 <ng-container matColumnDef="medioPago">
                     <th mat-header-cell *matHeaderCellDef> Medio PAgo </th>
-                    <td mat-cell *matCellDef="let element "> {{element.nitCompany}} </td>
+                    <td mat-cell *matCellDef="let element "> {{element.pmpMedioPago}} </td>
                 </ng-container>
 
                 <!-- Action Column -->
@@ -51,8 +51,8 @@
                     <th mat-header-cell *matHeaderCellDef> </th>
                     <td mat-cell *matCellDef="let element ">
                         <mat-chip-list>
-                            <mat-chip color="primary " (click)="updateCompany(element) " selected>Editar</mat-chip>
-                            <mat-chip color="warn " (click)="deleteCompany(element) " selected>Borrar</mat-chip>
+                            <mat-chip color="primary" (click)="updateElement(element) " selected>Editar</mat-chip>
+                            <mat-chip color="warn" (click)="deleteElement(element) " selected>Borrar</mat-chip>
                         </mat-chip-list>
                     </td>
                 </ng-container>

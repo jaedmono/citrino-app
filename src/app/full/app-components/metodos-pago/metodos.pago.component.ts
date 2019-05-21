@@ -8,7 +8,8 @@ import { DialogUpdateComponent} from '../dialog/dialog-update/dialog.update.comp
 import { AlertService} from '../../service/alert.service';
 import { Alert, AlertType } from '../../model/alert.model';
 import { Router } from '@angular/router';
-import { MetodosPago} from '../../model/medios.pago.model';
+import { PerfilMetodoPago} from '../../model/metodo.pago.model';
+import { MetodoPagoService } from '../../service/metodo.pago.service';
 
 export interface PayMethod {
     value: string;
@@ -22,21 +23,26 @@ export interface PayMethod {
 })
 export class MetodosPagoComponent implements AfterViewInit {
   displayedColumns: string[] = ['destino', 'medioPago', 'action' ];
-    selectedDataType: string;
-    payMethods: PayMethod[] = [
-        {value: 'Transferencia Banco', viewValue: 'Transferencia Banco'},
-        {value: 'Efectivo', viewValue: 'Efectivo'},
-        {value: 'Cheque', viewValue: 'Cheque'}
-    ];
-  public data: PerfilHorario[];
+  payMethods: PayMethod[] = [
+      {value: 'Transferencia Banco', viewValue: 'Transferencia Banco'},
+      {value: 'Efectivo', viewValue: 'Efectivo'},
+      {value: 'Cheque', viewValue: 'Cheque'}
+  ];
+  public data: PerfilMetodoPago[];
   public companies: Company[];
   public perfilHorario = new PerfilHorario();
-  public payMethod = new MetodosPago();
+  public payMethod = new PerfilMetodoPago();
   message = 'Metodo de Pago Creado.';
   @Input() id: string;
+  selectedIdCompany: number;
+  selectedPayMethod: string;
+  labelButtonSuccess = 'Crear';
+  labelButtonCancel = 'Siguiente';
+  shuldCanceled = false;
 
   constructor( private companyService: CompanyService,
                private alertService: AlertService,
+               private metdosPagoService: MetodoPagoService,
                public dialog: MatDialog,
                private router: Router) {
 
@@ -44,14 +50,19 @@ export class MetodosPagoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
+    this.metdosPagoService.getMetodosPago().subscribe(data => {this.data = data; });
   }
 
   createPayMethod(): void {
-    this.alertService.alert(new Alert({
-        message: this.message,
-        type: AlertType.Success,
-        alertId: this.id
-    }));
+    this.payMethod.idCompany = this.selectedIdCompany;
+    this.payMethod.pmpMedioPago = this.selectedPayMethod;
+    this.metdosPagoService.createMetodoPago(this.payMethod).subscribe(data => {
+      this.alertService.alert(new Alert({
+          message: this.message,
+          type: AlertType.Success,
+          alertId: this.id
+      }));
+    });
   }
 
   deleteElement(element): void {
@@ -62,7 +73,7 @@ export class MetodosPagoComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.companyService.deleteCompany(element)
+        this.metdosPagoService.deleteMetodoPago(element)
           .subscribe( data => {
             this.data = this.data.filter(u => u !== element);
           });
@@ -70,11 +81,33 @@ export class MetodosPagoComponent implements AfterViewInit {
     });
   }
 
+  clearForm(): void {
+    this.labelButtonCancel = 'Siguiente';
+    this.labelButtonSuccess = 'Crear';
+    this.selectedIdCompany = undefined;
+    this.selectedPayMethod = undefined;
+    this.payMethod = new PerfilMetodoPago();
+    this.message = 'Politica Creada.';
+    this.shuldCanceled = false;
+  }
+
+
   updateElement(element): void {
-    const dialogRef = this.dialog.open(DialogUpdateComponent, {
-      width: '650px',
-      data: {messageHeader: 'Editar Empresa', shouldUpdate: true}
-    });
+    this.selectedIdCompany = element.idCompany;
+    this.payMethod = element;
+    this.selectedPayMethod = element.pmpMedioPago;
+    this.shuldCanceled = true;
+    this.labelButtonSuccess = 'Actualizar';
+    this.labelButtonCancel = 'Cancelar';
+    this.message = 'Politica Modificada.';
+  }
+
+  cancelEvent(): void {
+    if ( this.shuldCanceled) {
+      this.clearForm();
+    } else {
+      this.router.navigate(['/citrino/estrategia']);
+    }
   }
 
 }
