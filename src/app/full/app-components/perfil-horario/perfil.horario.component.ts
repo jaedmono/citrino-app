@@ -86,7 +86,7 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
     this.perfilHorarioService.getPerfilesHorario().subscribe(data => {this.data = data; });
   }
-  
+
   clearForm(): void {
     this.labelButtonCancel = 'Siguiente';
     this.labelButtonSuccess = 'Crear';
