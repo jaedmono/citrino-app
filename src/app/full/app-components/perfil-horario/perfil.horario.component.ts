@@ -85,6 +85,11 @@ export class PerfilHorarioComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
+    this.refreshData();
+  }
+
+  
+  refreshData(): void {
     this.perfilHorarioService.getPerfilesHorario().subscribe(data => {this.data = data; });
   }
 
@@ -119,6 +124,8 @@ export class PerfilHorarioComponent implements AfterViewInit {
             type: AlertType.Success,
             alertId: this.id
         }));
+          this.refreshData();
+          this.clearForm();
     });
   }
 

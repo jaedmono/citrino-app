@@ -47,6 +47,10 @@ export class ContextoNormativoComponent implements AfterViewInit {
    }
 
    ngAfterViewInit() {
+    this.refreshData();
+  }
+
+  refreshData(): void {
     this.contextoRegulatorioService.getConextosRegulatorios().subscribe(data => {this.data = data; });
   }
 
@@ -66,6 +70,7 @@ export class ContextoNormativoComponent implements AfterViewInit {
          alertId: this.id
      }));
      this.clearForm();
+     this.refreshData();
    });
  }
 

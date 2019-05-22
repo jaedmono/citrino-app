@@ -3,6 +3,6 @@ export class ContextoTecnico {
     variable: string;
     tecnologia: string;
     valor: string;
-    IdCompany: number;
+    idCompany: number;
 }
 

@@ -50,6 +50,10 @@ export class ContextoEspacioComponent implements AfterViewInit {
   topping: boolean;
 
   ngAfterViewInit() {
+    this.refreshData();
+  }
+
+  refreshData(): void {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
   }
 
@@ -61,6 +65,7 @@ export class ContextoEspacioComponent implements AfterViewInit {
           type: AlertType.Success,
           alertId: this.idAlert
       }));
+      this.refreshData();
     });
 
     if ( this.selectedSeasons !== undefined) {

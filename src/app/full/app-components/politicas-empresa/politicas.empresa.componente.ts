@@ -67,6 +67,10 @@ export class PoliticasEmpresaComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
+    this.refreshData();
+  }
+  
+  refreshData(): void {
     this.politicaEmpresaService.getPerfilesPolitica().subscribe(data => {this.data = data; });
   }
 
@@ -80,6 +84,7 @@ export class PoliticasEmpresaComponent implements AfterViewInit {
           type: AlertType.Success,
           alertId: this.idCompany
         }));
+        this.refreshData();
       });
     this.clearForm();
   }

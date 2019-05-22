@@ -57,6 +57,10 @@ export class MetodosPagoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
+    this.refreshData();
+  }
+  
+  refreshData(): void {
     this.metdosPagoService.getMetodosPago().subscribe(data => {this.data = data; });
   }
 
@@ -69,6 +73,7 @@ export class MetodosPagoComponent implements AfterViewInit {
           type: AlertType.Success,
           alertId: this.id
       }));
+      this.refreshData();
     });
   }
 

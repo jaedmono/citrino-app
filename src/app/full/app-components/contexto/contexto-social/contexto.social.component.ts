@@ -44,6 +44,10 @@ export class ContextoSocialComponent implements AfterViewInit {
    }
 
    ngAfterViewInit() {
+    this.refreshData();
+  }
+
+  refreshData(): void {
     this.contextoSocialService.getConextosSociales().subscribe(data => {this.data = data; });
   }
 
@@ -63,6 +67,7 @@ export class ContextoSocialComponent implements AfterViewInit {
           alertId: this.id
       }));
       this.clearForm();
+      this.refreshData();
     });
   }
 

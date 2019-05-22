@@ -13,18 +13,18 @@ export class ContextoTecnicoService {
 
     constructor(private http: HttpClient) {}
 
-    private contextoSocialUrl = 'http://localhost:9292/ctx-tecnico';
+    private contextoTecnicoUrl = 'http://localhost:9292/ctx-tecnico';
 
     public getConextosTecnicos() {
-        return this.http.get<ContextoTecnico[]>(this.contextoSocialUrl, httpOptions);
+        return this.http.get<ContextoTecnico[]>(this.contextoTecnicoUrl, httpOptions);
     }
 
-    public deleteContextoSocial(contextoTecnico) {
-        return this.http.delete(this.contextoSocialUrl + '/' + contextoTecnico.idTecnico);
+    public deleteContextoTecnico(contextoTecnico) {
+        return this.http.delete(this.contextoTecnicoUrl + '/' + contextoTecnico.idTecnico);
     }
 
-    public createContextoSocial(contextoTecnico) {
-        return this.http.post<ContextoTecnico>(this.contextoSocialUrl, contextoTecnico);
+    public createContextoTecnico(contextoTecnico) {
+        return this.http.post<ContextoTecnico>(this.contextoTecnicoUrl, contextoTecnico);
     }
 
 }
