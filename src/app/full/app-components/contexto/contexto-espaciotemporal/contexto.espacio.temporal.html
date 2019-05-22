@@ -20,10 +20,10 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-form-field>
-                        <input matInput placeholder="Ciudad" [ngModel]="city" name="city">
+                        <input matInput placeholder="Ciudad" [(ngModel)]="contextoLocalizacion.city" name="city">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Pais" [ngModel]="country" name="country">
+                        <input matInput placeholder="Pais" [(ngModel)]="contextoLocalizacion.country" name="country">
                     </mat-form-field>
                 </mat-card-content>
             </mat-card>
@@ -34,7 +34,7 @@
                 <mat-card-content>
                     <mat-form-field>
                         <mat-label>Temporadas Selecionadas</mat-label>
-                        <mat-select [(ngModel)]="selectedSeasons" [formControl]="seasons" multiple name="season">
+                        <mat-select [(ngModel)]="selectedSeasons" multiple name="season">
                             <mat-option *ngFor="let topping of toppingList" [value]="topping" name="season">{{topping}}</mat-option>
                         </mat-select>
                     </mat-form-field>

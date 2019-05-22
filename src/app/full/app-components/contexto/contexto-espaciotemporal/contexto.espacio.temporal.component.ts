@@ -41,8 +41,6 @@ export class ContextoEspacioComponent implements AfterViewInit {
   public companies: Company[];
   public selectedIdCompany: number;
   public selectedSeasons: string[];
-  public city: string;
-  public country: string;
 
   idAlert = '0';
   calido: boolean;
@@ -57,9 +55,6 @@ export class ContextoEspacioComponent implements AfterViewInit {
 
   createTemporalContext(): void {
     this.contextoLocalizacion.idCompany = this.selectedIdCompany;
-    this.contextoLocalizacion.city = this.city;
-    this.contextoLocalizacion.country = this.country;
-    alert(this.contextoLocalizacion.city + ' '+ this.contextoLocalizacion.country);
     this.contextoLocalizacionService.createContextoLocalizacion(this.contextoLocalizacion).subscribe(data => {
       this.alertService.alert(new Alert({
           message: this.messageLocalizacionService,

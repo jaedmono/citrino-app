@@ -1,7 +1,7 @@
 export class Company {
 
     idCompany: number;
-    nitCompany: number;
+    nitCompany: string;
     nameCompany: string;
     totalEmployees: string;
     companyType: string;
