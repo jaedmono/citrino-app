@@ -24,6 +24,12 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { PoliticaEmpresaService } from './full/service/politicas.empresa.service';
 import { MetodoPagoService } from './full/service/metodo.pago.service';
 import { EstrategiaService } from './full/service/estrategia.service';
+import { ContextoClimaService } from './full/service/contexto.clima.service';
+import { ContextoLocalizacionService } from './full/service/contexto.localizacion.service';
+import { ContextoRegulatorioService } from './full/service/contexto.regulatorio.service';
+import { ContextoSocialService } from './full/service/contexto.social.service';
+import { ContextoTecnicoService } from './full/service/contexto.tecnico.service';
+import { ContextoTemporadaService } from './full/service/contexto.temporada.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,14 @@ import { EstrategiaService } from './full/service/estrategia.service';
     PerfilHorarioService,
     PoliticaEmpresaService,
     MetodoPagoService,
-    EstrategiaService
+    EstrategiaService,
+    ContextoClimaService,
+    ContextoLocalizacionService,
+    ContextoRegulatorioService,
+    ContextoSocialService,
+    ContextoTecnicoService,
+    ContextoTecnicoService,
+    ContextoTemporadaService
   ],
   bootstrap: [AppComponent]
 })

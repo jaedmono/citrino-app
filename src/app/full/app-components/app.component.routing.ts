@@ -48,15 +48,15 @@ export const AppComponentRoutes: Routes = [
     component: ContextoEspacioComponent
   },
   {
-    path: 'contexto-social',
+    path: 'contexto-social/:idCompany',
     component: ContextoSocialComponent
   },
   {
-    path: 'contexto-normativo',
+    path: 'contexto-normativo/:idCompany',
     component: ContextoNormativoComponent
   },
   {
-    path: 'contexto-tecnico',
+    path: 'contexto-tecnico/:idCompany',
     component: ContextoTecnicoComponent
   },
   {

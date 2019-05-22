@@ -113,7 +113,7 @@ export class MetodosPagoComponent implements AfterViewInit {
     if ( this.shuldCanceled) {
       this.clearForm();
     } else {
-      this.router.navigate(['/citrino/estrategia',this.selectedIdCompany]);
+      this.router.navigate(['/citrino/estrategia', this.selectedIdCompany]);
     }
   }
 
