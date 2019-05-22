@@ -15,15 +15,15 @@ export class ContextoRegulatorioService {
 
     private contextoRegulatorioUrl = 'http://localhost:9292/ctx-regulatorio';
 
-    public getConextosTecnicos() {
+    public getConextosRegulatorios() {
         return this.http.get<ContextoRegulatorio[]>(this.contextoRegulatorioUrl, httpOptions);
     }
 
-    public deleteContextoSocial(contextoRegulatorio) {
-        return this.http.delete(this.contextoRegulatorioUrl + '/' + contextoRegulatorio.idTecnico);
+    public deleteContextoRegulatorio(contextoRegulatorio) {
+        return this.http.delete(this.contextoRegulatorioUrl + '/' + contextoRegulatorio.idRegulatorio);
     }
 
-    public createContextoSocial(contextoRegulatorio) {
+    public createContextoRegulatorio(contextoRegulatorio) {
         return this.http.post<ContextoRegulatorio>(this.contextoRegulatorioUrl, contextoRegulatorio);
     }
 

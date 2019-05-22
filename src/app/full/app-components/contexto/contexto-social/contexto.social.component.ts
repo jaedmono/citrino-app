@@ -20,7 +20,7 @@ export class ContextoSocialComponent implements AfterViewInit {
                                 'action'
                               ];
   message = 'Contexto Social Creado.';
-  @Input() id: string; 
+  @Input() id: string;
   selectedIdCompany: number;
   labelButtonSuccess = 'Crear';
   labelButtonCancel = 'Siguiente';
