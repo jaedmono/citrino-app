@@ -34,6 +34,7 @@ import { ContextoEspaciotemporalService } from './full/service/contexto.espaciot
 import { FileUtilService} from './full/service/file.load.service';
 import { ProcesoService} from './full/service/proceso.service';
 import { IndustriaService} from './full/service/industria.service';
+import { BpmnService} from './full/service/bpmn.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { IndustriaService} from './full/service/industria.service';
     ContextoEspaciotemporalService,
     FileUtilService,
     ProcesoService,
-    IndustriaService
+    IndustriaService,
+    BpmnService
   ],
   bootstrap: [AppComponent]
 })

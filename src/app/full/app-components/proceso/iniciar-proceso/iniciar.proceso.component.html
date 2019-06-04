@@ -6,7 +6,15 @@
             <div class="example-button-row">
                 <button mat-raised-button color="primary" (click)="adaptar()">Adaptar</button>
             </div>
-            <mat-spinner *ngIf="disableSpiner"></mat-spinner>
+            <!--mat-spinner *ngIf="disableSpiner"></mat-spinner-->
+            <section class="progress-bar-section" *ngIf="disableSpiner">
+                <mat-progress-bar
+                    class="progress-bar-margin"
+                    color="primary"
+                    mode="query"
+                    value="100">
+                </mat-progress-bar>
+              </section>
         </form>
     </mat-card-content>
 </mat-card>
