@@ -28,6 +28,8 @@ import { ContextoNormativoComponent} from './contexto/contexto-normativo/context
 import { ContextoTecnicoComponent} from './contexto/contexto-tecnico/contexto.tecnico.component';
 import { IniciarProcesoComponent} from './proceso/iniciar-proceso/iniciar.proceso.component';
 import { BpmnComponent} from './proceso/BPMN/bpmn.component';
+import { IndustriaComponent} from './configuracion/industria.component';
+import { ConsultarProcesoComponent} from './proceso/consultar-proceso/consultar.proceso.component';
 
 @NgModule({
   imports: [
@@ -59,7 +61,9 @@ import { BpmnComponent} from './proceso/BPMN/bpmn.component';
     ContextoNormativoComponent,
     ContextoTecnicoComponent,
     IniciarProcesoComponent,
-    BpmnComponent
+    BpmnComponent,
+    IndustriaComponent,
+    ConsultarProcesoComponent
   ]
 })
 export class AppComponentModule {}

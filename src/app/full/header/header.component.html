@@ -26,8 +26,7 @@
     <button mat-menu-item routerLink="iniciar-proceso">Iniciar Proceso</button>
 </mat-menu>
 
-<button mat-button>Configuración</button>
-<!--mat-menu #configuracion="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-</mat-menu-->
+<button mat-button [matMenuTriggerFor]="configuracion">Configuración</button>
+<mat-menu #configuracion="matMenu">
+    <button mat-menu-item routerLink="industria">Industria</button>
+</mat-menu>

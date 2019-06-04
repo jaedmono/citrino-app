@@ -88,7 +88,6 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.refreshData();
   }
 
-  
   refreshData(): void {
     this.perfilHorarioService.getPerfilesHorario().subscribe(data => {this.data = data; });
   }
@@ -164,7 +163,16 @@ export class PerfilHorarioComponent implements AfterViewInit {
     if ( this.shuldCanceled) {
       this.clearForm();
     } else {
-      this.router.navigate(['/citrino/politicas-empresa',this.selectedIdCompany]);
+      if (this.selectedIdCompany === undefined) {
+        this.message = 'Para continuar se debe seleccionar una empresa.';
+        this.alertService.alert(new Alert({
+            message: this.message,
+            type: AlertType.Error,
+            alertId: this.id
+        }));
+      } else {
+        this.router.navigate(['/citrino/politicas-empresa', this.selectedIdCompany]);
+      }
     }
   }
 

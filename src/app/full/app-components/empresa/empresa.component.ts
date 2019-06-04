@@ -38,27 +38,24 @@ export class EmpresaComponent {
   selectedFormaJuridica: string;
   selectedAmbitoOper: string;
   acteconos: Actecono[] = [
-    {value: 'Industria', viewValue: 'Industria'},
-    {value: 'Tecnologia', viewValue: 'Tecnologia'},
-    {value: 'Comercio', viewValue: 'Comercio'},
-    {value: 'Agropecuaria', viewValue: 'Agropecuaria'}
+    {value: 'Primaria', viewValue: 'Primaria'},
+    {value: 'Secundaria', viewValue: 'Secundaria'},
+    {value: 'Terciaria', viewValue: 'Terciaria'}
   ];
   companyTypes: CompanyType[] = [
-    {value: 'Persona Natural', viewValue: 'Persona Natural'},
-    {value: 'Unipersonal', viewValue: 'Unipersonal'},
-    {value: 'Sociedad por Acciones', viewValue: 'Sociedad por Acciones'},
-    {value: 'Sociedad Colectiva', viewValue: 'Sociedad Colectiva'}
+    {value: 'Micro', viewValue: 'Micro'},
+    {value: 'Mediana', viewValue: 'Mediana'},
+    {value: 'Grande', viewValue: 'Grande'}
   ];
   formaJuridicas: FormaJuridica[] = [
-    {value: 'Sociedad', viewValue: 'Sociedad'},
-    {value: 'Unipersonal', viewValue: 'Unipersonal'},
-    {value: 'Por Acciones', viewValue: 'Por Acciones'},
-    {value: 'Colectiva', viewValue: 'Colectiva'}
+    {value: 'Individuales', viewValue: 'Individuales'},
+    {value: 'Sociedades', viewValue: 'Sociedades'}
   ];
   ambitoOpers: AmbitoOper[] = [
-    {value: 'Regional', viewValue: 'Regional'},
-    {value: 'Nacional', viewValue: 'Nacional'},
-    {value: 'Multinacional', viewValue: 'Multinacional'}
+    {value: 'Locales', viewValue: 'Locales'},
+    {value: 'Nacionales', viewValue: 'Nacionales'},
+    {value: 'Regionales', viewValue: 'Regionales'},     
+    {value: 'Multinacionales', viewValue: 'Multinacionales'}
   ];
   company: Company = new Company();
   message = 'Empresa Creada.';

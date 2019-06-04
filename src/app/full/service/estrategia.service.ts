@@ -20,7 +20,7 @@ export class EstrategiaService {
     }
 
     public deleteEstrategia(estrategia) {
-        return this.http.delete(this.estrategiaUrl + "/" + estrategia.idCompany);
+        return this.http.delete(this.estrategiaUrl + '/' + estrategia.idPest);
     }
 
     public createEstrategia(estrategia) {

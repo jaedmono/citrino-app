@@ -31,22 +31,23 @@ export class EstrategiaComponent implements AfterViewInit {
   }
 
   createEstrategia(): void {
-    this.estrategia.nitCompany = this.selectedIdCompany;
-    this.estrategia.pestSeleccion = this.estrategiaSelected;
+    this.estrategia.idCompany = this.selectedIdCompany;
+    this.estrategia.pestNombre = this.estrategiaSelected;
     this.estrategiaService.createEstrategia(this.estrategia).subscribe(data => {
       this.alertService.alert(new Alert({
           message: this.message,
           type: AlertType.Success,
           alertId: this.id
       }));
+      this.router.navigate(['/citrino/contexto-temporal']);
     });
-    
   }
 
   ngOnInit() {
     this.rout.params.subscribe(params => {
-     this.selectedIdCompany = params['idCompany'];
+      this.selectedIdCompany = params.idCompany;
      });
    }
+
 
 }

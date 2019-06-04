@@ -30,6 +30,10 @@ import { ContextoRegulatorioService } from './full/service/contexto.regulatorio.
 import { ContextoSocialService } from './full/service/contexto.social.service';
 import { ContextoTecnicoService } from './full/service/contexto.tecnico.service';
 import { ContextoTemporadaService } from './full/service/contexto.temporada.service';
+import { ContextoEspaciotemporalService } from './full/service/contexto.espaciotemporal.service';
+import { FileUtilService} from './full/service/file.load.service';
+import { ProcesoService} from './full/service/proceso.service';
+import { IndustriaService} from './full/service/industria.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,11 @@ import { ContextoTemporadaService } from './full/service/contexto.temporada.serv
     ContextoSocialService,
     ContextoTecnicoService,
     ContextoTecnicoService,
-    ContextoTemporadaService
+    ContextoTemporadaService,
+    ContextoEspaciotemporalService,
+    FileUtilService,
+    ProcesoService,
+    IndustriaService
   ],
   bootstrap: [AppComponent]
 })

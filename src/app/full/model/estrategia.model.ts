@@ -1,7 +1,7 @@
 export class Estrategia {
 
     idPest: number;
-    nitCompany: number;
+    idCompany: number;
     pestNombre: string;
     pestSeleccion: string;
   }

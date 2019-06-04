@@ -74,6 +74,7 @@ export class MetodosPagoComponent implements AfterViewInit {
           alertId: this.id
       }));
       this.refreshData();
+      this.clearForm();
     });
   }
 
