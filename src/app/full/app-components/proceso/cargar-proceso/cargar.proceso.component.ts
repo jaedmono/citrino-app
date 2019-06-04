@@ -48,7 +48,6 @@ export class CargarProcesoComponent implements AfterViewInit{
 
   fileChangeListener($event): void {
 
-    const text = [];
     const target = $event.target || $event.srcElement;
     const files = target.files;
 
@@ -67,7 +66,7 @@ export class CargarProcesoComponent implements AfterViewInit{
 
     const input = $event.target;
     const reader = new FileReader();
-    reader.readAsText(input.files[0]);
+    reader.readAsText(input.files[0], 'iso-8859-1');
 
     reader.onload = (data) => {
       const csvData = reader.result;
