@@ -68,7 +68,7 @@ export class CargarProcesoComponent {
 
     reader.onload = (data) => {
       const csvData = reader.result;
-      const csvRecordsArray = csvData.split(/\r\n|\n/);
+      const csvRecordsArray = (csvData as string).split(/\r\n|\n/);
 
       let headerLength = -1;
       if (Constants.isHeaderPresentFlag) {
