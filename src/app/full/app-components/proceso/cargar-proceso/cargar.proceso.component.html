@@ -5,8 +5,8 @@
             <mat-form-field>
                 <mat-label>Tipo de Industria</mat-label>
                 <mat-select [(ngModel)]="selectedDataType" name="dataType">
-                    <mat-option *ngFor="let dataType of dataTypes" [value]="dataType.value">
-                        {{dataType.viewValue}}
+                    <mat-option *ngFor="let industria of industrias" [value]="industria.idInd">
+                        {{industria.nameIndustry}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

@@ -8,6 +8,8 @@ import { Constants } from './test.constants';
 import { AlertService} from '../../../service/alert.service';
 import { Alert, AlertType } from '../../../model/alert.model';
 import { Proceso } from '../../../model/proceso.model';
+import { IndustriaService} from '../../../service/industria.service';
+import { Industria } from '../../../model/industria.model';
 
 
 export interface DataType {
@@ -21,13 +23,9 @@ export interface DataType {
   styleUrls: []
 })
 
-export class CargarProcesoComponent {
+export class CargarProcesoComponent implements AfterViewInit{
     selectedDataType: string;
-    dataTypes: DataType[] = [
-        {value: 'Textil', viewValue: 'Textil'},
-        {value: 'Tecnologica', viewValue: 'Tecnologica'},
-        {value: 'Agropecuaria', viewValue: 'Agropecuaria'}
-    ];
+    industrias: Industria[] ;
 
   @ViewChild('fileImportInput')
   fileImportInput: any;
@@ -39,8 +37,13 @@ export class CargarProcesoComponent {
                private router: Router,
                private alertService: AlertService,
                private fileUtilService: FileUtilService,
-               private procesoService: ProcesoService) {
+               private procesoService: ProcesoService,
+               private industriaService: IndustriaService) {
 
+  }
+
+  ngAfterViewInit() {
+    this.industriaService.getIndustrias().subscribe(data => {this.industrias = data; });
   }
 
   fileChangeListener($event): void {
