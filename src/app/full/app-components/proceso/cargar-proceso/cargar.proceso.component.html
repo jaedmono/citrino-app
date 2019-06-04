@@ -4,7 +4,7 @@
             <h1>Carga de Procesos PCF</h1>
             <mat-form-field>
                 <mat-label>Tipo de Industria</mat-label>
-                <mat-select [(ngModel)]="selectedDataType" name="dataType">
+                <mat-select [(ngModel)]="selectedIdIndustria" name="dataType">
                     <mat-option *ngFor="let industria of industrias" [value]="industria.idInd">
                         {{industria.nameIndustry}}
                     </mat-option>
@@ -20,19 +20,7 @@
                     </td>
                 </tr>
             </table>
-            <div>
-                <table class="table table-responsive table-hover" border="1" style="width : 100%;">
-                    <tbody>
-                        <ng-container *ngFor="let csvRec of csvRecords;let i=index">
-                            <tr>
-                                <ng-container *ngFor="let data of csvRec;let j=index">
-                                    <td>{{data}}</td>
-                                </ng-container>
-                            </tr>
-                        </ng-container>
-                    </tbody>
-                </table>
-            </div>
         </form>
+        <app-alert></app-alert>
     </mat-card-content>
 </mat-card>

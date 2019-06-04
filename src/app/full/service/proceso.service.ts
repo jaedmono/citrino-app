@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 import { Proceso } from '../model/proceso.model';
+import { ProcesoResponse} from '../model/proceso.response.model';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,7 +25,7 @@ export class ProcesoService {
     }
 
     public addProcesses(proceso) {
-        return this.http.post<Proceso>(this.procesoUrl, proceso);
+        return this.http.post<ProcesoResponse>(this.procesoUrl, proceso);
     }
 
     public getProcessesByIndustry(idIndustry) {
