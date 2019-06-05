@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Modeler, OriginalPropertiesProvider, PropertiesPanelModule, InjectionNames, OriginalPaletteProvider} from './bpmn-js/bpmn-js';
 import {CustomPropsProvider} from './props-provider/CustomPropsProvider';
 import {CustomPaletteProvider} from './props-provider/CustomPaletteProvider';
 
-const customModdle = {
+/*const customModdle = {
     name: 'customModdle',
     uri: 'http://example.com/custom-moddle',
     prefix: 'custom',
@@ -27,7 +27,7 @@ const customModdle = {
         ]
       },
     ]
-  };
+  };*/
 
 @Component({
     selector: 'app-bpmn',
@@ -35,8 +35,8 @@ const customModdle = {
     styleUrls: []
 })
 export class BpmnComponent implements OnInit {
-title = 'BPMN';
 modeler;
+@Input() documentXml;
 
 constructor(private http: HttpClient) {
 }
@@ -45,7 +45,7 @@ ngOnInit(): void {
     this.modeler = new Modeler({
     container: '#canvas',
     width: '100%',
-    height: '600px',
+    height: '600px'/*,
     additionalModules: [
         PropertiesPanelModule,
 
@@ -62,8 +62,9 @@ ngOnInit(): void {
     },
     moddleExtension: {
         custom: customModdle
-    }
+    }*/
     });
+    this.load();
 }
 
     handleError(err: any) {
@@ -73,7 +74,7 @@ ngOnInit(): void {
     }
 
     load(): void {
-        const url = '/assets/bpmn/tmp.bpmn';
+        /*const url = '/assets/bpmn/tmp.bpmn';
         this.http.get(url, {
         headers: {observe: 'response'}, responseType: 'text'
         }).subscribe(
@@ -82,7 +83,10 @@ ngOnInit(): void {
             this.modeler.importXML(x, this.handleError);
         },
         this.handleError
-        );
+        );*/
+        alert( this.documentXml);
+        //const document = (new DOMParser()).parseFromString(this.documentXml, 'text/xml');
+        this.modeler.importXML(this.documentXml, this.handleError);
     }
 
     save(): void {

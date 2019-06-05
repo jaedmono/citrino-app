@@ -15,7 +15,7 @@ export class BpmnService {
 
     private procesoUrl = 'http://localhost:9292/process-bpmn';
 
-    public getProcesses() {
+    public getBpmnFile(idCompany, idProcess) {
         return this.http.get<BpmnResponse>(this.procesoUrl, httpOptions);
     }
 

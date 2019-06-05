@@ -3,18 +3,46 @@
         <form class="example-form">
             <h1>Proceso de Adaptación</h1>
             <p>Aplicar proceso de adaptación</p>
+            <mat-grid-list cols="3" rowHeight="2:1">
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Empresa</mat-label>
+                        <mat-select [(ngModel)]="selectedIdCompany" id="company" name="company">
+                            <mat-option *ngFor="let company of companies" [value]="company.idCompany">
+                                {{company.nameCompany}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Industria</mat-label>
+                        <mat-select [(ngModel)]="selectedIdIndustry" id="industry" name="industry" (selectionChange)="refreshProcessData()">
+                            <mat-option *ngFor="let industry of industries" [value]="industry.idInd">
+                                {{industry.nameIndustry}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Proceso</mat-label>
+                        <mat-select [(ngModel)]="selectedIdProcess" id="process" name="process">
+                            <mat-option *ngFor="let process of processes" [value]="process.id">
+                                {{process.processDescription}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
             <div class="example-button-row">
                 <button mat-raised-button color="primary" (click)="adaptar()">Adaptar</button>
             </div>
             <!--mat-spinner *ngIf="disableSpiner"></mat-spinner-->
             <section class="progress-bar-section" *ngIf="disableSpiner">
-                <mat-progress-bar
-                    class="progress-bar-margin"
-                    color="primary"
-                    mode="query"
-                    value="100">
+                <mat-progress-bar class="progress-bar-margin" color="primary" mode="query" value="100">
                 </mat-progress-bar>
-              </section>
+            </section>
         </form>
     </mat-card-content>
 </mat-card>

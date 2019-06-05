@@ -67,7 +67,8 @@ export const AppComponentRoutes: Routes = [
   },
   {
     path: 'iniciar-proceso',
-    component: IniciarProcesoComponent
+    component: IniciarProcesoComponent,
+    loadChildren: './proceso/BPMN/bpmn.component'
   },
   {
     path: 'ver-proceso',
