@@ -11,6 +11,7 @@ import { Proceso } from '../../../model/proceso.model';
 import { IndustriaService} from '../../../service/industria.service';
 import { Industria } from '../../../model/industria.model';
 import { ProcesoService} from '../../../service/proceso.service';
+import {Modeler} from '../BPMN/bpmn-js/bpmn-js';
 
 @Component({
   selector: 'app-iniciar-proceso',
@@ -28,6 +29,7 @@ export class IniciarProcesoComponent implements AfterViewInit {
   selectedIdProcess: number;
   selectedIdCompany: number;
   documentXml: string;
+  modeler;
 
   constructor( public dialog: MatDialog,
                private router: Router,
@@ -42,6 +44,25 @@ export class IniciarProcesoComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.companyService.getCompanies().subscribe(data => {this.companies = data; });
     this.industriaService.getIndustrias().subscribe(data => {this.industries = data; });
+  }
+
+  ngOnInit(): void {
+    this.modeler = new Modeler({
+    container: '#canvas',
+    width: '100%',
+    height: '600px'
+    });
+  }
+
+  handleError(err: any) {
+    if (err) {
+    console.warn('Ups, error: ', err);
+    }
+  }
+
+  load(): void {
+    alert( this.documentXml);
+    this.modeler.importXML(this.documentXml, this.handleError);
   }
 
   refreshProcessData(): void {
