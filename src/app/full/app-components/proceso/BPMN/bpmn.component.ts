@@ -36,7 +36,7 @@ import {CustomPaletteProvider} from './props-provider/CustomPaletteProvider';
 })
 export class BpmnComponent implements OnInit {
 modeler;
-@Input() documentXml;
+documentXml: string;
 
 constructor(private http: HttpClient) {
 }
@@ -74,18 +74,7 @@ ngOnInit(): void {
     }
 
     load(): void {
-        /*const url = '/assets/bpmn/tmp.bpmn';
-        this.http.get(url, {
-        headers: {observe: 'response'}, responseType: 'text'
-        }).subscribe(
-        (x: any) => {
-            console.log('Fetched XML, now importing: ', x);
-            this.modeler.importXML(x, this.handleError);
-        },
-        this.handleError
-        );*/
-        alert( this.documentXml);
-        //const document = (new DOMParser()).parseFromString(this.documentXml, 'text/xml');
+        this.documentXml = window.localStorage.getItem('documentXml');
         this.modeler.importXML(this.documentXml, this.handleError);
     }
 

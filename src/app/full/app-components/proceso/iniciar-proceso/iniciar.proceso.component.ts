@@ -1,17 +1,14 @@
-import { Component, ViewChild, AfterViewInit, Input, Output} from '@angular/core';
+import { Component, AfterViewInit, Input, Inject, Injectable} from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router } from '@angular/router';
 import { AlertService} from '../../../service/alert.service';
-import { Alert, AlertType } from '../../../model/alert.model';
 import { BpmnService} from '../../../service/bpmn.service';
-import { BpmnResponse} from '../../../model/bpmn.response.model';
 import { Company} from '../../../model/company.model';
 import { CompanyService} from '../../../service/company.service';
 import { Proceso } from '../../../model/proceso.model';
 import { IndustriaService} from '../../../service/industria.service';
 import { Industria } from '../../../model/industria.model';
 import { ProcesoService} from '../../../service/proceso.service';
-import {Modeler} from '../BPMN/bpmn-js/bpmn-js';
 
 @Component({
   selector: 'app-iniciar-proceso',
@@ -30,6 +27,7 @@ export class IniciarProcesoComponent implements AfterViewInit {
   selectedIdCompany: number;
   documentXml: string;
   modeler;
+  STORAGE_KEY = 'local_todolist';
 
   constructor( public dialog: MatDialog,
                private router: Router,
@@ -46,30 +44,15 @@ export class IniciarProcesoComponent implements AfterViewInit {
     this.industriaService.getIndustrias().subscribe(data => {this.industries = data; });
   }
 
-  ngOnInit(): void {
-    this.modeler = new Modeler({
-    container: '#canvas',
-    width: '100%',
-    height: '600px'
-    });
-  }
-
-  handleError(err: any) {
-    if (err) {
-    console.warn('Ups, error: ', err);
-    }
-  }
-
-  load(): void {
-    alert( this.documentXml);
-    this.modeler.importXML(this.documentXml, this.handleError);
-  }
-
   refreshProcessData(): void {
     this.procesoService.getProcessesByIndustry(this.selectedIdIndustry).subscribe( data => {
         this.processes = data;
       }
     );
+  }
+
+  viewBpmn(): void{
+      this.router.navigate(['/citrino/ver-proceso']);
   }
 
   adaptar(): void {
@@ -80,6 +63,7 @@ export class IniciarProcesoComponent implements AfterViewInit {
     this.disableSpiner = true;
     this.bpmnService.getBpmnFile(this.selectedIdCompany, this.selectedIdProcess).subscribe(data => {
       this.documentXml = data.bpmn;
+      window.localStorage.setItem('documentXml', this.documentXml);
       this.alertService.success('El proceso de adaptación fue terminado haga click en el boton Ver BPMN');
       this.resourcesLoaded = true;
       this.disableSpiner = false;

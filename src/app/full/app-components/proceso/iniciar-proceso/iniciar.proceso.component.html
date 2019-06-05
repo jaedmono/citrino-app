@@ -51,13 +51,8 @@
         <form class="example-form">
             <app-alert></app-alert>
             <div class="example-button-row">
-                <button mat-raised-button color="primary" (click)="load()" [disabled]="!resourcesLoaded">Ver BPMN</button>
+                <button mat-raised-button color="primary" (click)="viewBpmn()" [disabled]="!resourcesLoaded">Ver BPMN</button>
             </div>
         </form>
-    </mat-card-content>
-    <mat-card-content>
-        <div>
-            <div id="canvas"></div>
-        </div>
     </mat-card-content>
 </mat-card>
