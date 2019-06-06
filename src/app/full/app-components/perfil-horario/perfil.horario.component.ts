@@ -41,19 +41,12 @@ export class PerfilHorarioComponent implements AfterViewInit {
                                 'otros',
                                 'action'
                               ];
-    selectedSeason: string;
     selectedEmployeeType: string;
     selectedJournal: string;
     selectedIdCompany: number;
     horasExtra: string;
     paganBonos: string;
     otrosReconocimientos: string;
-    seasons: Season[] = [
-        {value: 'Invierno', viewValue: 'Invierno'},
-        {value: 'Primavera', viewValue: 'Primavera'},
-        {value: 'Otoño', viewValue: 'Otoño'},
-        {value: 'Verano', viewValue: 'Verano'}
-      ];
       employeeTypes: EmployeeType[] = [
         {value: 'Administrativo', viewValue: 'Administrativo'},
         {value: 'Operario', viewValue: 'Operario'},
@@ -95,7 +88,6 @@ export class PerfilHorarioComponent implements AfterViewInit {
   clearForm(): void {
     this.labelButtonCancel = 'Siguiente';
     this.labelButtonSuccess = 'Crear';
-    this.selectedSeason = undefined;
     this.selectedEmployeeType = undefined;
     this.selectedJournal = undefined;
     this.selectedIdCompany = undefined;
@@ -103,17 +95,16 @@ export class PerfilHorarioComponent implements AfterViewInit {
     this.paganBonos = undefined;
     this.otrosReconocimientos = undefined;
     this.shuldCanceled = false;
+    this.perfilHorario = new PerfilHorario();
   }
 
   createPerfilHorario(): void {
-    this.perfilHorario.phoTemporada = this.selectedSeason;
     this.perfilHorario.phoTipoEmpleado = this.selectedEmployeeType;
     this.perfilHorario.phoJornada = this.selectedJournal;
     this.perfilHorario.idCompany = this.selectedIdCompany;
     this.perfilHorario.phoExtras = this.horasExtra;
     this.perfilHorario.phoBonos = this.paganBonos;
     this.perfilHorario.phoOtros = this.otrosReconocimientos;
-    this.clearForm();
 
     this.perfilHorarioService.createPerfilHorario(this.perfilHorario)
         .subscribe( data => {
@@ -145,7 +136,6 @@ export class PerfilHorarioComponent implements AfterViewInit {
   }
 
   updateElement(element): void {
-    this.selectedSeason = element.phoTemporada;
     this.selectedEmployeeType = element.phoTipoEmpleado;
     this.selectedJournal = element.phoJornada;
     this.selectedIdCompany = element.idCompany;

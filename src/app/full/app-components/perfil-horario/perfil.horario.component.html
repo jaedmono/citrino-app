@@ -11,12 +11,7 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Temporada</mat-label>
-                <mat-select [(ngModel)]="selectedSeason" name="season">
-                    <mat-option *ngFor="let season of seasons" [value]="season.value">
-                        {{season.viewValue}}
-                    </mat-option>
-                </mat-select>
+                <input matInput placeholder="Temporada" [(ngModel)]="perfilHorario.phoTemporada" name="temporada">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Tipo Empleado</mat-label>
