@@ -4,7 +4,8 @@ import {Modeler, OriginalPropertiesProvider, PropertiesPanelModule, InjectionNam
 import {CustomPropsProvider} from './props-provider/CustomPropsProvider';
 import {CustomPaletteProvider} from './props-provider/CustomPaletteProvider';
 
-/*const customModdle = {
+
+const customModdle = {
     name: 'customModdle',
     uri: 'http://example.com/custom-moddle',
     prefix: 'custom',
@@ -27,7 +28,7 @@ import {CustomPaletteProvider} from './props-provider/CustomPaletteProvider';
         ]
       },
     ]
-  };*/
+  };
 
 @Component({
     selector: 'app-bpmn',
@@ -41,11 +42,14 @@ documentXml: string;
 constructor(private http: HttpClient) {
 }
 
+bpmnModeler: any;
+bpmnData: any;
+
 ngOnInit(): void {
-    this.modeler = new Modeler({
+  this.modeler = new Modeler({
     container: '#canvas',
     width: '100%',
-    height: '600px'/*,
+    height: '600px',
     additionalModules: [
         PropertiesPanelModule,
 
@@ -62,7 +66,7 @@ ngOnInit(): void {
     },
     moddleExtension: {
         custom: customModdle
-    }*/
+    }
     });
     this.load();
 }
