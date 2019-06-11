@@ -1,5 +1,5 @@
 export class BpmnResponse{
     bpmn: string;
-    idCompani: number;
+    idCompany: number;
     idProcess: number;
 }
