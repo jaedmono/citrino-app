@@ -13,10 +13,11 @@ export class BpmnService {
 
     constructor(private http: HttpClient) {}
 
-    private procesoUrl = 'http://localhost:9292/process-bpmn';
+    private procesoUrl = 'http://localhost:8080/citrinoweb-0.0.1-SNAPSHOT/execute?idProceso=';
 
     public getBpmnFile(idCompany, idProcess) {
-        return this.http.get<BpmnResponse>(this.procesoUrl, httpOptions);
+        const finalURl = this.procesoUrl + idProcess + '&idEmpresa=' + idCompany;
+        return this.http.get<BpmnResponse>(finalURl, httpOptions);
     }
 
 }
